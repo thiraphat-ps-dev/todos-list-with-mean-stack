@@ -1,5 +1,55 @@
 # TodosWithMeanStack
 
+## Preview
+![alt text](todo-with-mean-stack.png)
+
+## Installation
+Download and install [Node.Js](https://nodejs.org/en/download/) for install package.
+<br/>
+
+Install angular cli with command
+```bash
+$ npm install -g @angular/cli
+```
+
+Install node_module with command
+```bash
+$ npm i
+```
+
+Install nodemon with command
+```bash
+$ npm install -g nodemon
+```
+
+Install [Robo3t](https://robomongo.org/download) to use local mongodb
+
+Change db host to you mongodb local in node/db.js
+```javascript
+mongoose.connect("mongodb://127.0.0.1/todosDatabase", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+});
+```
+
+and in todos_schema.js
+```javascript
+var connection = mongoose.createConnection(
+  "mongodb://127.0.0.1/todosDatabase"
+);
+```
+
+Runserver Backend with command
+```bash
+$ cd node
+$ nodemon server.js
+```
+
+Runserver Frontend with command
+```bash
+ng serve
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
 
 ## Development server
