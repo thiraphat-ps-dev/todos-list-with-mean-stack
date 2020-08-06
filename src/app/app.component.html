@@ -1,0 +1,34 @@
+<div class="todos-container">
+  <div class="todos-header">
+    <h1>Todos List With Mean Stack</h1>
+  </div>
+  <div class="todos-input">
+    <form
+      #feedbackForm="ngForm"
+      (ngSubmit)="feedbackForm.valid && onSubmit(feedbackForm.value)"
+    >
+      <input
+        name="todo"
+        type="text"
+        [(ngModel)]="todo"
+        placeholder="Please input your todos"
+      />
+    </form>
+  </div>
+  <ul class="todos-list">
+    <li *ngFor="let item of dataTodos">
+      <p [ngClass]="item.completed ? 'completed' : ''" style="max-width: 50%;">{{ item.todo }}</p>
+      <input
+        [checked]="item.completed"
+        type="checkbox"
+        (change)="onToggleStatus(item._id, item.completed)"
+      />
+      <button
+        style="padding: 5px; position: absolute; right: 10px;"
+        (click)="deleteTodo(item._id)"
+      >
+        X
+      </button>
+    </li>
+  </ul>
+</div>
